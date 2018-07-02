@@ -1,0 +1,411 @@
+// Assignment Styles //
+// Fonts //
+@font-face{
+  font-family:"Proxima N W01";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/proxima-nova-regular.woff2") format("woff2"),
+  url("fonts/proxima-nova-regular.woff") format("woff");
+}
+@font-face{
+  font-family:"Proxima N W01";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/proxima-nova-bold.woff2") format("woff2"),
+  url("fonts/proxima-nova-bold.woff") format("woff");
+}
+@font-face{
+  font-family:"Proxima N W01";
+  font-style: normal;
+  font-weight: 800;
+  src: url("fonts/proxima-nova-extrabold.woff2") format("woff2"),
+  url("fonts/proxima-nova-extrabold.woff") format("woff");
+}
+// Colours //
+$peach: #FF7865;
+$pineGreen: #0F5441;
+$oceanBlue: #204C63;
+$burgundy: #6D475A;
+$yellow: #FFD779;
+
+body{
+  margin: 0;
+  font-family: 'Proxima N W01';
+}
+
+//NAV
+.header-container{
+  display: flex;
+  margin: 10px 50px;
+  justify-content: space-between;
+  align-items: center;
+  ul{
+    display: flex;
+    margin: 0;
+  }
+  li{
+    margin-right: 10px;
+    list-style: none;
+  }
+  a{
+    color: #7a7a7a;;
+    text-decoration: none;
+  }
+}
+//HIDING NAV TOGGLE TILL 400PX
+.js-nav-toggle{
+    display: none;
+}
+
+
+//TITLE
+.title{
+  padding: 100px 0;
+  margin-bottom: 10px;
+  line-height: .9;
+  background: url("../images/lp-start-hero-comp.jpg") no-repeat right;
+  background-size: contain;
+  h1{
+    color: $peach;
+    font-size: 60px;
+    margin: 0;
+    max-width: 500px;
+    padding-left: 50px;
+  }
+  span{
+    color: $pineGreen;
+  }
+  p{
+    padding-left: 50px;
+    max-width: 450px;
+    line-height: 1.5;
+  }
+}
+
+
+//BODY
+
+@mixin info-box-head-div($color) {
+  background-color: $color;
+  color: white;
+  padding: 10px;
+}
+
+@mixin info-box-general {
+  margin: 20px 0;
+  flex: 0 1 30%;
+  background: white;
+}
+
+@mixin info-box-body-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+
+@mixin info-box-button($color) {
+  padding: 15px 40px;
+  border: 2px solid $color;
+  border-radius: 25px;
+  margin: 20px 0;
+  width: 80%;
+  text-transform: uppercase;
+}
+
+
+
+.info-blocks{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 50px;
+  color: #7a7a7a;
+  h3{
+    font-weight: 400;
+    margin: 0;
+    padding: 10px 0;
+  }
+  p{
+    font-weight: 400;
+    margin: 0;
+    padding: 0 0 10px 0;
+    font-size: 30px;
+  }
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  ul{
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    height: 150px;
+  }
+  li{
+    padding: 10px 0;
+    a{
+      color: $peach;
+    }
+  }
+  li:before {
+    content: '✓';
+  }
+}
+
+#first-info-block{
+  @include info-box-general;
+  div:nth-child(1){
+    background-color: $yellow;
+    position: absolute;
+    text-align: center;
+    padding: 5px 8px;
+    margin-top: -24px;
+    color:black;
+    text-transform: uppercase;
+    border-radius: 5px 5px 0px 0px;
+    font-size: 10px;
+    span{
+      color: black;
+    }
+  }
+  div:nth-child(2){
+    @include info-box-head-div($burgundy);
+  }
+  div:nth-child(3) {
+    @include info-box-body-div;
+  }
+  button{
+    @include info-box-button($burgundy);
+  }
+  span{
+    color: $burgundy;
+  }
+}
+
+#second-info-block{
+  @include info-box-general;
+  div:nth-child(1){
+    @include info-box-head-div($oceanBlue);
+  }
+  div:nth-child(2){
+    @include info-box-body-div;
+  }
+  button{
+    @include info-box-button($oceanBlue);
+  }
+  span{
+    color: $oceanBlue;
+  }
+}
+
+#third-info-block{
+  @include info-box-general;
+  div:nth-child(1){
+    @include info-box-head-div($pineGreen);
+  }
+  div:nth-child(2){
+    @include info-box-body-div;
+  }
+  button{
+    @include info-box-button($pineGreen);
+  }
+  span{
+    color: $pineGreen;
+  }
+}
+
+.divider{
+  display: flex;
+  justify-content: space-around;
+  padding: 5%;
+  a{
+    color: $peach;
+    text-decoration: none;
+    border-bottom:1px solid $peach;
+    padding-bottom:2px;
+  }
+}
+
+#body-image{
+  background-image: url("../images/blood-tests-bg.svg");
+  background-size: cover;
+}
+
+
+//SLIDER
+.js-carousel-items{
+  div{
+    display: flex;
+    margin: 0 auto;
+    padding: 30px 0;
+    justify-content: space-around;
+    text-align: center;
+  }
+  h3{
+    color: $pineGreen;
+    font-weight: 800;
+    font-size: 40px;
+    margin: 0;
+  }
+  p{
+    color: #7a7a7a;
+    margin: 0;
+  }
+}
+
+
+
+//FOOTER
+.footer{
+  flex-direction: column;
+  width: 100%;
+  background-image: url('../images/footer-bg.svg');
+  background-repeat: no-repeat;
+  div{
+    display: flex;
+    flex: 0 1 18%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  ul{
+    margin: 0;
+    justify-content: space-around;
+  }
+  li{
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  a{
+    text-decoration: none;
+    color: #7a7a7a;
+  }
+}
+
+#media-links{
+  display: flex;
+  justify-content: space-around;
+  a{
+    height: 20px;
+    padding: 10px 40px;
+    border: 2px solid $peach;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  ul{
+    display: flex;
+    padding: 0;
+  }
+  ul li a{
+    border: none;
+    padding: 10px;
+  }
+  img{
+    width: 40px;
+    heigh: 40px;
+    filter: grayscale(100%);
+    opacity: .5;
+  }
+  span{
+    color: $peach;
+  }
+}
+
+#logo-display{
+  text-align: center;
+  align-content: baseline;
+  justify-content: space-around;
+  margin-top: auto;
+  p{
+    white-space: nowrap;
+  }
+}
+
+#klarna{
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 100px 0 30px 0;
+  img{
+    height: 15px;
+  }
+}
+
+
+//MEDIA HANDLING
+@media screen and (max-width: 400px) {
+  header{
+    border-bottom: 1px solid grey;
+  }
+  .header-container{
+    margin: 10px 0;
+    ul{
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+      z-index: 1;
+    }
+    .show{
+      display: block;
+    }
+  }
+  .js-nav-toggle{
+    display: block;
+  }
+  .title{
+    background-image: url("../images/lp-start-hero-small-comp.jpg");
+    background-position: bottom;
+    padding: 10px;
+    height: 500px;
+    h1{
+      font-size: 40px;
+      padding: 0;
+    }
+    p{
+      padding: 0;
+      max-width: 300px;
+    }
+    span{
+      display: block;
+    }
+  }
+  .info-blocks{
+    margin: 30px 0;
+  }
+  #first-info-block{
+    flex: 0 1 100%;
+  }
+  #second-info-block{
+    flex: 0 1 100%;
+  }
+  #third-info-block{
+    display: none
+  }
+  .footer{
+    background-image: none;
+    div{
+      display: block;
+    }
+    ul{
+      padding: 0;
+    }
+    li{
+      text-align: center;
+    }
+  }
+  #media-links{
+    a{
+      margin: 50px 0 15px 0;
+    }
+  }
+  #klarna{
+    padding-top: 10px;
+  }
+}
